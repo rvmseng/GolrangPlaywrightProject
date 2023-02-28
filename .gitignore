@@ -1,3 +1,6 @@
 /target/
-
 /test-output/
+/video/
+/screenshotd/
+
+trace.zip
