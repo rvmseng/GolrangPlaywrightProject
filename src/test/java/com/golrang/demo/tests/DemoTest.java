@@ -8,7 +8,6 @@ import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.BrowserType.LaunchOptions;
-import com.microsoft.playwright.options.BrowserChannel;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 import com.microsoft.playwright.Tracing;
@@ -16,7 +15,7 @@ import com.microsoft.playwright.Tracing;
 public class DemoTest {
 	
 	@Test
-	public void test1() {
+	public void open_google_website_test() {
 		LaunchOptions lo=new BrowserType.LaunchOptions();
 		lo.setHeadless(false);
 		
@@ -28,10 +27,12 @@ public class DemoTest {
 		
 		page.navigate("https://www.google.com");
 		System.out.println(page.title());
+		
+		browser.close();
 	}
 	
 	@Test
-	public void test2_with_tracing() {
+	public void open_playwright_website_with_tracing_test() {
 		LaunchOptions lo=new BrowserType.LaunchOptions();
 		lo.setHeadless(false);
 		
@@ -43,8 +44,7 @@ public class DemoTest {
 		// Start tracing before creating / navigating a page.
 		context.tracing().start(new Tracing.StartOptions()
 											.setScreenshots(true)
-											.setSnapshots(true)
-											.setSources(true));
+											.setSnapshots(true));
 		
 		Page page=context.newPage();
 		page.navigate("https://playwright.dev");
@@ -54,5 +54,6 @@ public class DemoTest {
 		// Stop tracing and export it into a zip archive.
 		context.tracing().stop(new Tracing.StopOptions()
 											.setPath(Paths.get("trace.zip")));
+		browser.close();
 	}
 }
