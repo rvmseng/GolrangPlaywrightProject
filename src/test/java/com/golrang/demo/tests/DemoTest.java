@@ -9,5 +9,11 @@ public class DemoTest {
 	public void test1() {
 		throw new SkipException("not implemented");
 	}
+	
+	@Test
+	public void test2() {
+		// TODO Auto-generated method stub
+
+	}
 
 }
