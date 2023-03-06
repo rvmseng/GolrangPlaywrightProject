@@ -9,6 +9,3 @@ mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="co
 /** Opening the trace **/
 mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="show-trace trace.zip"
 
-
-/** new line **/
-added by ahmad
