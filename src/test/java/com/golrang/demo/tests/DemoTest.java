@@ -56,4 +56,18 @@ public class DemoTest {
 											.setPath(Paths.get("trace.zip")));
 		browser.close();
 	}
+	
+	@Test
+	public void test3() {
+		LaunchOptions lo=new BrowserType.LaunchOptions();
+		lo.setHeadless(false);
+		lo.setChannel("msedge");
+		
+		Browser browser=Playwright.create().chromium().launch(lo);
+		Page page1=browser.newPage();
+		
+		page1.navigate("https://www.google.com");
+		System.out.println("title is > "+page1.title());
+		
+	}
 }
