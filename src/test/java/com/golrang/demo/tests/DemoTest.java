@@ -19,16 +19,20 @@ public class DemoTest {
 		lo.setHeadless(false);
 
 		lo.setChannel("chrome");
-		Browser browser = Playwright.create().chromium().launch(lo);
+		Playwright pl=Playwright.create();
+		
+		Browser browser = pl.chromium().launch(lo);
 
 		BrowserContext context = browser.newContext();
 		Page page = context.newPage();
 
 		page.navigate("https://www.google.com");
-		page.pause();
 		System.out.println(page.title());
 
+		page.close();
+		context.close();
 		browser.close();
+		pl.close();
 	}
 
 	public void open_playwright_website_with_tracing_test() {

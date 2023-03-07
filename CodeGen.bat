@@ -1,0 +1,1 @@
+mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="codegen http://91.92.207.95:4651/testlink/firstLogin.php?viewer=new"
